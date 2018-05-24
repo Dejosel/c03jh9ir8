@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 offset-sm-3">
+			<h1>Crea un nuevo actor</h1>
+			<%= form_for @actor do |f| %>
+			<div class="form-group">
+				<%= f.text_field :name, class: "form-control input-group-lg", placeholder: "Ingresa el nombre del Actor" %>
+			</div>
+			<div class="form-group">
+				<%= f.url_field :image_url, class: "form-control input-group-lg", placeholder: "URL de la foto del actor" %>	
+			</div>
+			<div class="form-group">
+				<%= f.text_area :bio, class: "form-control input-group-lg", placeholder: "Escribe la biografía del Actor" %>
+			</div>
+			<div class="form-group">
+				<%= f.text_field :birth_date, class: "form-control input-group-lg", placeholder: "Fecha de nacimiento Ej: 1989-02-16" %>	
+			</div>
+			<div class="form-group">
+				<%= f.text_field :birth_place, class: "form-control input-group-lg", placeholder: "Lugar donde nació el actor" %>	
+			</div>
+			<div class="form-group">
+				<%= f.check_box :alive, id: 'actor_dead' %> <span class="text-muted">Ya murió</span>
+			</div>			
+			<%= content_tag :div, class: 'js-dependent-fields', data: { 'checkbox-id': 'actor_dead', 'checkbox-value': 'true'} do %>
+			<div class="form-group">
+				<%= f.text_field :death_date, class: "form-control input-group-lg", placeholder: "Fecha de fallecimiento Ej: 1989-02-16" %>
+			</div>
+			<div class="form-group">
+				<%= f.text_field :death_place, class: "form-control input-group-lg", placeholder: "Lugar donde murió el actor" %>
+			</div>			     
+			<% end %>
+			<%= f.submit "Crear Actor", class: "btn btn-primary btn-lg btn-block" %>
+			<% end %>		
+		</div>		
+	</div>	
+</div>
