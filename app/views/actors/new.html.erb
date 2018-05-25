@@ -19,9 +19,9 @@
 				<%= f.text_field :birth_place, class: "form-control input-group-lg", placeholder: "Lugar donde nació el actor" %>	
 			</div>
 			<div class="form-group">
-				<%= f.check_box :alive, id: 'actor_dead' %> <span class="text-muted">Ya murió</span>
+				<%= f.check_box :alive, id: 'actor_dead' %> <span class="text-muted">Actualmente vive</span>
 			</div>			
-			<%= content_tag :div, class: 'js-dependent-fields', data: { 'checkbox-id': 'actor_dead', 'checkbox-value': 'true'} do %>
+			<%= content_tag :div, class: 'js-dependent-fields', data: { 'checkbox-id': 'actor_dead', 'checkbox-value': 'false'} do %>
 			<div class="form-group">
 				<%= f.text_field :death_date, class: "form-control input-group-lg", placeholder: "Fecha de fallecimiento Ej: 1989-02-16" %>
 			</div>

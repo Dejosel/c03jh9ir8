@@ -1,32 +1,36 @@
 <div class="container">
 	<div class="row">
-		<div class="col-sm-10 offset-sm-1">			
-				<table class="table table-hover">
-				  <thead>
-				    <tr>
-				      <th scope="col">Foto</th>
-				      <th scope="col">Nombre</th>
-				      <th scope="col">Biografía</th>
-				      <th scope="col">Fecha de nacimiento</th>
-				      <th scope="col">Lugar de nacimiento</th>
-				      <th scope="col">Fecha de fallecimiento</th>
-				      <th scope="col">Lugar de fallecimiento</th>
-				    </tr>
-				  </thead>		
-				  <tbody>				  	
+		<div class="col-sm-10 offset-sm-1">
+			<h1>Lista de Actores</h1>
+			<div class="my-5 text-right">
+				<%= link_to "Crear Actor", new_actor_path, class: "btn btn-primary" %>
+			</div>			
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th scope="col">Foto</th>
+						<th scope="col">Nombre</th>
+						<th scope="col">Biografía</th>
+						<th scope="col">Fecha de nacimiento</th>
+						<th scope="col">Lugar de nacimiento</th>
+						<th scope="col">Fecha de fallecimiento</th>
+						<th scope="col">Lugar de fallecimiento</th>
+					</tr>
+				</thead>		
+				<tbody>				  	
 					<% @actors.each do |actor| %>
-				    <tr>
-				      <td><img style="width: 100px;" src='<%= actor.image_url %>' class="rounded" /></td>
-				      <td><%= actor.name %></td>				      
-				      <td><%= actor.bio %></td>
-				      <td><%= actor.birth_date %></td>
-				      <td><%= actor.birth_place %></td>				      
-				      <td><% if actor.alive == false %><%= actor.death_date %><% end %></td>
-				      <td><% if actor.alive == false %><%= actor.death_place %><% end %></td>				      
-				    </tr>
+					<tr>
+						<td><img style="width: 100px;" src='<%= actor.image_url %>' class="rounded" /></td>
+						<td><%= actor.name %></td>				      
+						<td><%= actor.bio %></td>
+						<td><%= actor.birth_date %></td>
+						<td><%= actor.birth_place %></td>				      
+						<td><% if !actor.alive %><%= actor.death_date %><% end %></td>
+						<td><% if !actor.alive %><%= actor.death_place %><% end %></td>				      
+					</tr>
 					<% end %>				 			    
-				  </tbody>
-				</table>
+				</tbody>
+			</table>
 		</div>		
 	</div>	
 </div>
